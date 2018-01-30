@@ -100,10 +100,10 @@ function checkConflict() {
 
 function play_sound(pion) {
   if (pion == 'pionRouge') {
-    var audio = new Audio('plop.mp3');
+    var audio = new Audio('rouge.mp3');
     audio.play();
   } else {
-    var audio = new Audio('plop.mp3');
+    var audio = new Audio('noir.mp3');
     audio.play();
   }
 }
