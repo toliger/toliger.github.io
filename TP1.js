@@ -173,21 +173,25 @@ var pion_actif = 'pionRouge';
 
 window.addEventListener('keypress', function(e) {
   switch (e.key) {
+    case ',':
     case 'z':
       {
         deplacer(pion_actif, 'haut');
         break;
       }
+    case 'a':
     case 'q':
       {
         deplacer(pion_actif, 'gauche');
         break;
       }
+    case 'o':
     case 's':
       {
         deplacer(pion_actif, 'bas');
         break;
       }
+    case 'e':
     case 'd':
       {
         deplacer(pion_actif, 'droite');
