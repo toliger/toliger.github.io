@@ -7,6 +7,11 @@ var pion_noir = {
   y: 4
 };
 
+getelement('pionRouge').style.marginTop = 256;
+getelement('pionRouge').style.marginLeft = 256;
+getelement('pionNoir').style.marginTop = 512;
+getelement('pionNoir').style.marginLeft = 512;
+
 
 function damierOnOff() {
   var damier = document.getElementById('damier');
