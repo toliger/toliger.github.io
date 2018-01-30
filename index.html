@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style>
+    #damier {
+      width: 1024px;
+      height: 1024px;
+      background: url('SonsImages/damier.jpg')
+    }
+
+    .pion {
+      width: 128px;
+      height: 128px;
+      position: absolute;
+    }
+
+    #pionRouge {
+      background: url('SonsImages/pionRouge.png');
+      z-index: 1;
+    }
+
+    #pionNoir {
+      background: url('SonsImages/pionNoir.png');
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="damierOnOff();">Damier : on/off</button>
+  <button onclick="deplacer('pionRouge','haut');">top</button>
+  <button onclick="deplacer('pionRouge','bas');">bottom</button>
+  <button onclick="deplacer('pionRouge','gauche');">left</button>
+  <button onclick="deplacer('pionRouge','droite');">right</button>
+  <button onclick="deplacer('pionNoir','haut');">top</button>
+  <button onclick="deplacer('pionNoir','bas');">bottom</button>
+  <button onclick="deplacer('pionNoir','gauche');">left</button>
+  <button onclick="deplacer('pionNoir','droite');">right</button>
+  <div id="damier">
+    <div id="pionRouge" style="margin-left: 256; margin-top: 256;" class="pion">
+
+    </div>
+    <div id="pionNoir" style="margin-left: 512; margin-top: 512;" class="pion">
+
+    </div>
+  </div>
+  </div>
+  <script src="TP1.js" language="JavaScript"></script>
+</body>
+
+</html>
