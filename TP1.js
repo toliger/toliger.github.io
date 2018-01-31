@@ -7,12 +7,18 @@ var pion_noir = {
   y: 4
 };
 
+
+// Par défault le pion actif et le rouge
+var pion_actif = 'pionRouge';
+
+
+// On place les pions
 getelement('pionRouge').style.marginTop = 256;
 getelement('pionRouge').style.marginLeft = 256;
 getelement('pionNoir').style.marginTop = 512;
 getelement('pionNoir').style.marginLeft = 512;
 
-
+// hide / show le damier
 function damierOnOff() {
   var damier = document.getElementById('damier');
   if (damier.style.visibility === '' || damier.style.visibility === 'visible') {
@@ -84,6 +90,8 @@ function updatePos(pion, direction) {
 
 var last_conflict = false;
 
+
+// recherche les collisions
 function checkConflict() {
   if (last_conflict) {
     getelement('pionRouge').style.transform = '';
@@ -92,24 +100,27 @@ function checkConflict() {
 
   if (pion_noir.x == pion_rouge.x && pion_noir.y == pion_rouge.y) {
     last_conflict = true;
-    var audio = new Audio('colision.mp3');
+    var audio = new Audio('./SonsImages/colision.mp3');
     audio.play();
     getelement('pionRouge').style.transform = 'scale(1.5)';
   }
 }
 
+// bruit quand on se déplace
 function play_sound(pion) {
   if (pion == 'pionRouge') {
-    var audio = new Audio('rouge.mp3');
+    var audio = new Audio('./SonsImages/rouge.mp3');
     audio.play();
   } else {
-    var audio = new Audio('noir.mp3');
+    var audio = new Audio('./SonsImages/noir.mp3');
     audio.play();
   }
 }
 
+
+// si on essaye de sortir du damier
 function play_stop() {
-  var audio = new Audio('stop.mp3');
+  var audio = new Audio('./SonsImages/stop.mp3');
   audio.play();
 }
 
@@ -174,9 +185,22 @@ function deplacer(pion, direction) {
   }
 }
 
-var pion_actif = 'pionRouge';
+// Secret combinaison
+var touche_buffer = ['', '', ''];
 
+function secret_function(l) {
+  touche_buffer.push(l);
+  touche_buffer.shift();
+  if (touche_buffer[0] == 'b' && touche_buffer[1] == 'o' && touche_buffer[2] == 'b') {
+    var audio = new Audio('./SonsImages/bob.mp3');
+    audio.play();
+  }
+}
+
+
+// Sous mac les fleches ne fonctionnent pas, du coup j'ai choisis ZQSD et le support aux claviers dvorak
 window.addEventListener('keypress', function(e) {
+  secret_function(e.key);
   switch (e.key) {
     case ',':
     case 'z':
@@ -205,6 +229,7 @@ window.addEventListener('keypress', function(e) {
   }
 });
 
+// rend un pion actif
 function pionActif(pion) {
   if (pion == 'pionRouge') {
     getelement('pionRouge').style.zIndex = 3;
@@ -215,6 +240,7 @@ function pionActif(pion) {
   }
 }
 
+// Met actif les pions quand on clique dessus
 getelement('pionRouge').addEventListener('click', function(e) {
   pionActif('pionRouge');
 });

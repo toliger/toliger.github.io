@@ -1,0 +1,21 @@
+#damier {
+  width: 1024px;
+  height: 1024px;
+  background: url('SonsImages/damier.jpg');
+}
+
+.pion {
+  width: 128px;
+  height: 128px;
+  position: absolute;
+}
+
+#pionRouge {
+  background: url('SonsImages/pionRouge.png');
+  z-index: 1;
+}
+
+#pionNoir {
+  background: url('SonsImages/pionNoir.png');
+  z-index: 2;
+}
