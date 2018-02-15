@@ -1,18 +1,13 @@
 class Piece {
 
   constructor(x, y, couleur = "rouge", id, damier) {
-    console.log(damier, 'zefef');
+
     this.arene = damier;
     // Init object
     this.id = id;
 
-    // create html element
-    var pion = $('<div></div>');
-    pion.attr("id", "pion" + this.id);
-    pion.addClass('pion');
 
-    // push the element to the "damier"
-    $('#damier').append(pion);
+    new BuildPion(this.arene.taille.hauteur.px / this.arene.taille.hauteur.nb, couleur, id);
 
     // set color & position
     this.color = couleur;

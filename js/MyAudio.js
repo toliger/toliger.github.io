@@ -1,7 +1,7 @@
 class MyAudio{
   constructor(event, data){
     let audio = new Audio('./SonsImages/rouge.mp3');
-    console.log(data);
+
     switch (event) {
       case 'move': {
         switch (data.color) {
