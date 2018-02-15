@@ -41,7 +41,7 @@ class Arene {
 $(() => {
 
   const dimension = 1024;
-  const cases = 20;
+  const cases = 10;
   const color = 'green';
   new BuildArene(dimension, cases, color);
   damier = new Arene("", {
