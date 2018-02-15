@@ -40,9 +40,10 @@ class Arene {
 
 $(() => {
 
-  const dimension = 1024;
-  const cases = 10;
-  const color = 'green';
+
+  const dimension = prompt('taille en px du damier') |,1024;
+  const cases = prompt('nombre de cases par ligne') |  10;
+  const color = prompt('couleur du damier') |'green';
   new BuildArene(dimension, cases, color);
   damier = new Arene("", {
     hauteur: {
