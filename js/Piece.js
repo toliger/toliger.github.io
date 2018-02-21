@@ -22,22 +22,25 @@ class Piece {
     });
   }
 
-  activer(){
-    if(active_piece){
+  // Rendre la piece active (premier plan)
+  activer() {
+    if (active_piece) {
       $("#pion" + active_piece).removeClass('Pion_actif');
     }
     active_piece = this.id;
     $("#pion" + this.id).addClass('Pion_actif');
   }
 
-  desactiver(){
+  // Rendre la piece inactive (premier plan)
+  desactiver() {
     active_piece = null;
     $("#pion" + this.id).removeClass('Pion_actif');
   }
 
+  //=========== Setters pour update les coordonnées de la piece
   set lgn(x) {
     this._lgn = x;
-    $("#pion" + this.id).css('margin-left', (this._lgn - 1) * (this.arene.taille.largeur.px/ this.arene.taille.hauteur.nb));
+    $("#pion" + this.id).css('margin-left', (this._lgn - 1) * (this.arene.taille.largeur.px / this.arene.taille.hauteur.nb));
   }
 
   set col(y) {
@@ -53,6 +56,7 @@ class Piece {
     return this._col;
   }
 
+  // Setter qui modifie la couleur de la piece
   set color(color) {
     this._color = color;
     switch (color) {
@@ -77,10 +81,13 @@ class Piece {
 
   print() {
     console.log('x = ' + this.lgn + ', y = ' + this.col);
-  };
+  }
 
+  // Déplacer la piece
   deplacer(direction) {
-    new MyAudio('move', { color: this.color });
+    new MyAudio('move', {
+      color: this.color
+    });
     switch (direction) {
       case 'haut':
         {
@@ -119,5 +126,5 @@ class Piece {
           break;
         }
     }
-  };
+  }
 }

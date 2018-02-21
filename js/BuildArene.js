@@ -5,6 +5,7 @@ class BuildArene {
       width: taille + 'px',
       height: taille + 'px',
     })
+
     $('<canvas>').attr({
       id: 'canvas'
     }).css({
@@ -15,11 +16,13 @@ class BuildArene {
     }).appendTo('#arene');
 
     let box_size = taille / dim;
-    var c = document.getElementById("canvas");
-    var ctx = c.getContext("2d");
+    let c = document.getElementById("canvas");
+    let ctx = c.getContext("2d");
+
     ctx.canvas.width = taille;
     ctx.canvas.height = taille;
     ctx.fillStyle = color;
+
     for (let i = 0; i < dim; i++) {
       for (let j = 0; j < dim; j++) {
         if (i % 2) {
@@ -27,7 +30,6 @@ class BuildArene {
         } else {
           ctx.fillRect(box_size + j * 2 * box_size, i * box_size, box_size, box_size);
         }
-
       }
     }
   }
